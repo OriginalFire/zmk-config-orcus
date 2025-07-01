@@ -20,4 +20,17 @@
         ;
 };
 
+/ {
+    leds {
+        compatible = "zmk,leds";
+        status = "okay";
+
+        led_strip: led_strip {
+            compatible = "zmk,led-strip";
+            pin = <&xiao_d 1 GPIO_ACTIVE_HIGH>;  // Your LED data pin
+            chain-length = <12>;                 // Number of LEDs
+            status = "okay";
+        };
+    };
+};
 
