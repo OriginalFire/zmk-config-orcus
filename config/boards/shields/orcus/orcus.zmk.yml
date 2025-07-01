@@ -1,11 +1,11 @@
 file_format: "1"
-id: mimas
-name: MIMAS
+id: orcus
+name: ORCUS
 type: shield
-url: https://github.com/GEIGEIGEIST/TOTEM
+url: https://github.com/OriginalFire/Orcus
 requires: [seeeduino_xiao_ble]
 features:
   - keys
 siblings:
-  - mimas_left
-  - mimas_right
+  - orcus_left
+  - orcuss_right

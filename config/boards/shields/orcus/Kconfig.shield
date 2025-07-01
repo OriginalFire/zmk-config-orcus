@@ -1,8 +1,8 @@
 # Copyright (c) 2022 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-config SHIELD_MIMAS_LEFT
-    def_bool $(shields_list_contains,mimas_left)
+config SHIELD_ORCUS_LEFT
+    def_bool $(shields_list_contains,orcus_left)
 
-config SHIELD_MIMAS_RIGHT
-    def_bool $(shields_list_contains,mimas_right)
+config SHIELD_ORCUS_RIGHT
+    def_bool $(shields_list_contains,orcus_right)
