@@ -19,3 +19,17 @@
         , <&xiao_d 10 GPIO_ACTIVE_HIGH>
         ;
 };
+
+/ {
+    chosen {
+        zmk,underglow = &rgb_led;
+    };
+
+    rgb_led: rgb_led {
+        compatible = "worldsemi,ws2812-strip";
+        gpio-lt = <&gpio0 13 GPIO_ACTIVE_HIGH>; // <--- Ensure your actual GPIO pin is here
+        chain-length = <1>;
+        label = "RIGHT_UNDERGLOW";
+        // The layer-indicator block should be GONE from here
+    };
+};
