@@ -32,7 +32,7 @@
                                 &kp C                        // single tap
                                 &macro_ctrl_c               // double tap
                         >;
-                }
+                };
 
                 td_paste: tap_dance_paste{
                         compatible = "zmk,behavior-tap-dance";
@@ -42,7 +42,7 @@
                                 &kp V                        // single tap
                                 &macro_ctrl_v               // double tap
                         >;
-                }
+                };
 
                 macro_ctrl_c: ctrl_c_macro {
                         compatible = "zmk,behavior-macro";
