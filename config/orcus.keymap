@@ -4,11 +4,74 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
-#define MOD     1
-#define NAV     2
+#define NUM     1
+#define MOD     2
 
 
-/ {
+/ {     
+        behaviors {
+                td_lp: tap_dance_left_pinky {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <&mt LSHIFT TAB>, <&kp ESC>;
+                };
+
+                td_rp: tap_dance_right_pinky {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <&mt RSHIFT ENTER>, <&kp DEL>;
+                };
+
+                td_copy: tap_dance_copy{
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <
+                                &kp C                        // single tap
+                                &macro_ctrl_c               // double tap
+                        >;
+                }
+
+                td_paste: tap_dance_paste{
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <
+                                &kp V                        // single tap
+                                &macro_ctrl_v               // double tap
+                        >;
+                }
+
+                macro_ctrl_c: ctrl_c_macro {
+                        compatible = "zmk,behavior-macro";
+                        label = "CTRL+C";
+                        #binding-cells = <0>;
+
+                        macro-bindings = <
+                                &kp LCTRL &kp C
+                        >;
+                };
+
+                macro_ctrl_v: ctrl_v_macro {
+                        compatible = "zmk,behavior-macro";
+                        label = "CTRL+V";
+                        #binding-cells = <0>;
+
+                        macro-bindings = <
+                                &kp LCTRL &kp V
+                        >;
+                };
+        };
+
+        conditional_layers {
+                compatible = "zmk,conditional-layers";
+                tri_layer {
+                        if-layers = <1 2>;
+                        then-layer = <3>;
+                };
+        };
            
         keymap {
                 compatible = "zmk,keymap";
@@ -22,46 +85,46 @@ display-name = "Base"                      ;
 //             ┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┫
 //             ┃     A     ┃     S     ┃     D     ┃     F     ┃     G     ┃   ┃     H     ┃     J     ┃     K     ┃     L     ┃     ;     ┃    
 // ┏━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫━━━━━━━━━━━┓
-// ┃   LSHFT   ┃     Z     ┃     X     ┃     C     ┃     V     ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃   RSHFT   ┃
+// ┃  td_lp    ┃     Z     ┃     X     ┃   C/COPY  ┃  V/PASTE  ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃   td_rp   ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃   LCTRL   ┃    LALT   ┃   SPACE   ┃   ┃   ENTER   ┃    RALT   ┃   RCTRL   ┃
+//                                     ┃   LCTRL   ┃    LALT   ┃   SPACE   ┃   ┃    BSPC   ┃    MOD    ┃   RCTRL   ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp Q       &kp W       &kp E       &kp R       &kp T                &kp Y       &kp U       &kp I       &kp O       &kp P       
-                &kp A       &kp S       &kp D       &kp F       &kp G                &kp H       &kp J       &kp K       &kp L       &kp SEMI    
-    &kp LSFT    &kp Z       &kp X       &kp C       &kp V       &kp B                &kp N       &kp M       &kp COMMA   &kp DOT     &kp SLASH   &kp RSFT
-                                        &kp LALT    &kp LCMD    &lt MOD SPACE        &lt NAV BSPC    &kp RCTRL   &kp RALT   
+                &kp Q       &kp W       &kp E       &kp R       &kp T                &kp Y         &kp U       &kp I       &kp O       &kp P       
+                &kp A       &kp S       &kp D       &kp F       &kp G                &kp H         &kp J       &kp K       &kp L       &kp SEMI    
+    &td_lp      &kp Z       &kp X       &td_copy    &td_paste   &kp B                &kp N         &kp M       &kp COMMA   &kp DOT     &kp SLASH   &td_rp
+                                        &kp LALT    &kp LCMD    &lt NUM SPACE        &lt MOD BSPC  &tog MOD    &kp RALT   
                         >;
                 };
 
-                mods {
+                num {
 // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-display-name = "mods"                      ;
+display-name = "num"                      ;
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃     Q     ┃     W     ┃     E     ┃     R     ┃     T     ┃   ┃     Y     ┃     U     ┃     I     ┃     O     ┃     P     ┃   
+//             ┃   trans   ┃     UP    ┃   trans   ┃   trans   ┃   trans   ┃   ┃     N7    ┃     N8    ┃     N9    ┃     +     ┃   trans   ┃   
 //             ┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┫
-//             ┃     A     ┃     S     ┃     D     ┃     F     ┃     G     ┃   ┃     H     ┃     J     ┃     K     ┃     L     ┃     ;     ┃    
+//             ┃    LEFT   ┃    DOWN   ┃   RIGHT   ┃   trans   ┃   trans   ┃   ┃     N4    ┃     N5    ┃     N6    ┃     -     ┃     =     ┃    
 // ┏━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫━━━━━━━━━━━┓
-// ┃   LSHFT   ┃     Z     ┃     X     ┃     C     ┃     V     ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃   RSHFT   ┃
+// ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   ┃     N1    ┃     N2    ┃     N3    ┃     *     ┃     /     ┃   trans   ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃   LCTRL   ┃    LALT   ┃   SPACE   ┃   ┃   ENTER   ┃    RALT   ┃   RCTRL   ┃
+//                                     ┃   trans   ┃   trans   ┃   trans   ┃   ┃     N0    ┃   KP_DOT  ┃   trans   ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp Q       &kp W       &kp E       &kp R       &kp T                &kp Y       &kp U       &kp I       &kp O       &kp P       
-                &kp A       &kp S       &kp D       &kp F       &kp G                &kp H       &kp J       &kp K       &kp L       &kp SEMI    
-    &kp LSFT    &kp Z       &kp X       &kp C       &kp V       &kp B                &kp N       &kp M       &kp COMMA   &kp DOT     &kp SLASH   &kp RSFT
-                                        &kp LALT    &kp LCMD    &lt MOD SPACE        &lt NAV BSPC    &kp RCTRL   &kp RALT   
+                &trans      &kp UP      &trans      &trans      &trans               &kp N7      &kp N8      &kp N9       &kp KP_PLUS       &trans      
+                &kp LEFT    &kp DOWN    &kp RIGHT   &trans      &trans               &kp N4      &kp N5      &kp N6       &kp KP_MINUS      &kp KP_EQUAL   
+    &trans      &trans      &trans      &trans      &trans      &trans               &kp N1      &kp N2      &kp N3       &kp KP_MULTIPLY   &kp KP_SLASH  &trans
+                                        &trans      &trans      &trans               &kp N0      &kp KP_DOT  &trans   
                         >;
                 };
 
-                nav {
+                mod {
 // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-display-name = "nav"                      ;
+display-name = "mod"                      ;
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
 //             ┃     Q     ┃     W     ┃     E     ┃     R     ┃     T     ┃   ┃     Y     ┃     U     ┃     I     ┃     O     ┃     P     ┃   
