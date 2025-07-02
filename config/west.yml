@@ -7,9 +7,5 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
-    - name: zmk-module-layer-underglow-macro
-      remote: zmkfirmware
-      revision: main
-      path: modules/zmk-layer-underglow-macro
   self:
     path: config

@@ -15,17 +15,3 @@
         , <&xiao_d 10 GPIO_ACTIVE_HIGH>
         ;
 };
-
-/ {
-    leds {
-        compatible = "zmk,leds";
-        status = "okay";
-
-        led_strip: led_strip {
-            compatible = "zmk,led-strip";
-            pin = <&xiao_d 1 GPIO_ACTIVE_HIGH>;
-            chain-length = <1>;
-            status = "okay";
-        };
-    };
-};

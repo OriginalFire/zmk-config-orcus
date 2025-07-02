@@ -9,35 +9,7 @@
 
 
 / {
-        behaviors {
-                und_color_0: macro_underglow_color_off {
-                compatible = "zmk,behavior-macro";
-                label = "UNDERGLOW_COLOR_OFF";
-                #binding-cells = <0>;
-                behavior-macro-function = <&macro_layer_underglow_color>;
-                default-layer = <0>;
-                default-underglow-color = <0 0 0 0>;  // off
-                };
-
-                und_color_1: macro_underglow_color_1 {
-                compatible = "zmk,behavior-macro";
-                label = "UNDERGLOW_COLOR_1";
-                #binding-cells = <0>;
-                behavior-macro-function = <&macro_layer_underglow_color>;
-                default-layer = <1>;
-                default-underglow-color = <255 0 0 255>;  // red
-                };
-
-                und_color_2: macro_underglow_color_2 {
-                compatible = "zmk,behavior-macro";
-                label = "UNDERGLOW_COLOR_2";
-                #binding-cells = <0>;
-                behavior-macro-function = <&macro_layer_underglow_color>;
-                default-layer = <2>;
-                default-underglow-color = <0 0 255 255>;  // blue
-                };
-        };
-     
+           
         keymap {
                 compatible = "zmk,keymap";
 
