@@ -42,20 +42,14 @@
                         compatible = "zmk,behavior-macro";
                         label = "CTRL+C";
                         #binding-cells = <0>;
-
-                        macro-bindings = <
-                                &kp LCTRL &kp C
-                        >;
+                        bindings = < &kp LCTRL &kp C >;
                 };
 
                 macro_ctrl_v: ctrl_v_macro {
                         compatible = "zmk,behavior-macro";
                         label = "CTRL+V";
                         #binding-cells = <0>;
-
-                        macro-bindings = <
-                                &kp LCTRL &kp V
-                        >;
+                        bindings = < &kp LCTRL &kp V >;
                 };
         };
 
