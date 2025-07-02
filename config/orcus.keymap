@@ -5,7 +5,8 @@
 
 #define DEFAULT 0
 #define NUM     1
-#define MOD     2
+#define SYM     2
+#define SYS     3
 
 
 / {     
@@ -75,44 +76,70 @@ display-name = "Base"                      ;
 // ┏━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫━━━━━━━━━━━┓
 // ┃  td_lp    ┃     Z     ┃     X     ┃   C/COPY  ┃  V/PASTE  ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃   td_rp   ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃   LCTRL   ┃    LALT   ┃   SPACE   ┃   ┃    BSPC   ┃    MOD    ┃   RCTRL   ┃
+//                                     ┃   LCTRL   ┃    LALT   ┃   SPACE   ┃   ┃    BSPC   ┃    SYM    ┃    SYS    ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp Q       &kp W       &kp E       &kp R       &kp T                &kp Y         &kp U       &kp I       &kp O       &kp P       
-                &kp A       &kp S       &kp D       &kp F       &kp G                &kp H         &kp J       &kp K       &kp L       &kp SEMI    
-    &td_lp      &kp Z       &kp X       &td_copy    &td_paste   &kp B                &kp N         &kp M       &kp COMMA   &kp DOT     &kp SLASH   &td_rp
-                                        &kp LALT    &kp LCMD    &lt NUM SPACE        &lt MOD BSPC  &tog MOD    &kp RALT   
+                  &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P       
+                  &kp A       &kp S       &kp D       &kp F       &kp G           &kp H       &kp J       &kp K       &kp L       &kp SEMI    
+      &td_lp      &kp Z       &kp X       &td_copy    &td_paste   &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp SLASH   &td_rp
+                                          &kp LCTRL   &kp LALT    &lt NUM SPACE   &lt SYM BSPC &tog SYS   &kp RALT   
                         >;
                 };
+
 
                 num {
 // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 display-name = "num"                      ;
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃   trans   ┃     UP    ┃   trans   ┃   trans   ┃   trans   ┃   ┃     N7    ┃     N8    ┃     N9    ┃     +     ┃   trans   ┃   
+//             ┃   trans   ┃     UP    ┃   trans   ┃   trans   ┃   trans   ┃   ┃     *     ┃     N7    ┃     N8    ┃     N9    ┃   trans   ┃   
 //             ┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┫
-//             ┃    LEFT   ┃    DOWN   ┃   RIGHT   ┃   trans   ┃   trans   ┃   ┃     N4    ┃     N5    ┃     N6    ┃     -     ┃     =     ┃    
+//             ┃    LEFT   ┃    DOWN   ┃   RIGHT   ┃   trans   ┃   trans   ┃   ┃     /     ┃     N4    ┃     N5    ┃     N6    ┃   trans   ┃    
 // ┏━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫━━━━━━━━━━━┓
-// ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   ┃     N1    ┃     N2    ┃     N3    ┃     *     ┃     /     ┃   trans   ┃
+// ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   ┃     +     ┃     N1    ┃     N2    ┃     N3    ┃   trans   ┃   trans   ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃   trans   ┃   trans   ┃   trans   ┃   ┃     N0    ┃   KP_DOT  ┃   trans   ┃
+//                                     ┃   trans   ┃   trans   ┃   trans   ┃   ┃     -     ┃     N0    ┃   KP_DOT  ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &trans      &kp UP      &trans      &trans      &trans               &kp N7      &kp N8      &kp N9       &kp KP_PLUS       &trans      
-                &kp LEFT    &kp DOWN    &kp RIGHT   &trans      &trans               &kp N4      &kp N5      &kp N6       &kp KP_MINUS      &kp KP_EQUAL   
-    &trans      &trans      &trans      &trans      &trans      &trans               &kp N1      &kp N2      &kp N3       &kp KP_MULTIPLY   &kp KP_SLASH  &trans
-                                        &trans      &trans      &trans               &kp N0      &kp KP_DOT  &trans   
+                  &trans      &kp UP      &trans      &trans      &trans          &kp STAR    &kp N7      &kp N8      &kp N9      &trans     
+                  &kp LEFT    &kp DOWN    &kp RIGHT   &trans      &trans          &kp FSLH    &kp N4      &kp N5      &kp N6      &trans  
+      &trans      &trans      &trans      &trans      &trans      &trans          &kp PLUS    &kp N1      &kp N2      &kp N3      &trans      &trans  
+                                          &trans      &trans      &trans          &kp MINUS   &kp N0      &kp KP_DOT   
                         >;
                 };
 
-                mod {
+
+                sym {
 // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-display-name = "mod"                      ;
+display-name = "sym"                      ;
+// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+//             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+//             ┃   trans   ┃     !     ┃     @     ┃     #     ┃   trans   ┃   ┃   trans   ┃     {     ┃     }     ┃   trans   ┃   trans   ┃   
+//             ┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┫
+//             ┃   trans   ┃     $     ┃     %     ┃     ^     ┃   trans   ┃   ┃   trans   ┃     '     ┃     "     ┃   trans   ┃   trans   ┃    
+// ┏━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫━━━━━━━━━━━┓
+// ┃   trans   ┃   trans   ┃     &     ┃     *     ┃     (     ┃     )     ┃   ┃   trans   ┃     [     ┃     ]     ┃   trans   ┃   trans   ┃   trans   ┃
+// ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+//                                     ┃   trans   ┃   trans   ┃   trans   ┃   ┃   trans   ┃   trans   ┃   trans   ┃
+//                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+ bindings = <
+// ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+
+                  &trans      &kp EXCL    &kp AT      &kp HASH    &trans          &trans      &kp LBRC    &kp RBRC    &trans      &trans     
+                  &trans      &kp DLLR    &kp PRCNT   &kp CARET   &trans          &trans      &kp APOS      &kp DQT      &trans     &trans  
+      &trans      &trans      &kp AMPS    &kp STAR    &kp LPAR    &kp RPAR        &trans      &kp LBKT      &kp RBKT     &trans     &trans      &trans  
+                                          &trans      &trans      &trans          &trans      &trans     &trans  
+                        >;
+                };
+
+
+                sys {
+// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+display-name = "sys"                      ;
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
 //             ┃     Q     ┃     W     ┃     E     ┃     R     ┃     T     ┃   ┃     Y     ┃     U     ┃     I     ┃     O     ┃     P     ┃   
@@ -126,10 +153,10 @@ display-name = "mod"                      ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp Q       &kp W       &kp E       &kp R       &kp T                &kp Y       &kp U       &kp I       &kp O       &kp P       
-                &kp A       &kp S       &kp D       &kp F       &kp G                &kp H       &kp J       &kp K       &kp L       &kp SEMI    
-    &kp LSFT    &kp Z       &kp X       &kp C       &kp V       &kp B                &kp N       &kp M       &kp COMMA   &kp DOT     &kp SLASH   &kp RSFT
-                                        &kp LALT    &kp LCMD    &lt MOD SPACE        &lt NUM BSPC    &kp RCTRL   &kp RALT   
+                  &trans      &kp UP      &trans      &trans      &trans          &kp STAR    &kp N7      &kp N8      &kp N9      &trans     
+                  &kp LEFT    &kp DOWN    &kp RIGHT   &trans      &trans          &kp FSLH    &kp N4      &kp N5      &kp N6      &trans  
+      &trans      &trans      &trans      &trans      &trans      &trans          &kp PLUS    &kp N1      &kp N2      &kp N3      &trans      &trans  
+                                          &trans      &trans      &trans          &kp MINUS   &kp N0      &kp KP_DOT    
                         >;
                 };
         };
