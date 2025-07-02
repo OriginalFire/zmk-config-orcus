@@ -28,20 +28,14 @@
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <
-                                &kp C                        // single tap
-                                &macro_ctrl_c               // double tap
-                        >;
+                        bindings = < &kp C &macro_ctrl_c >;
                 };
 
                 td_paste: tap_dance_paste{
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <
-                                &kp V                        // single tap
-                                &macro_ctrl_v               // double tap
-                        >;
+                        bindings = < &kp V &macro_ctrl_v >;
                 };
 
                 macro_ctrl_c: ctrl_c_macro {
