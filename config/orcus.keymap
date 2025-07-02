@@ -9,6 +9,10 @@
 
 
 / {
+        aliases {
+                macro_layer_underglow_color = &macro_layer_underglow_color;
+        };
+
         behaviors {
                 und_color_0: macro_underglow_color_off {
                 compatible = "zmk,behavior-macro";
