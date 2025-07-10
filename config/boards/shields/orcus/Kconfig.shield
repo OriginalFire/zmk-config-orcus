@@ -6,3 +6,6 @@ config SHIELD_ORCUS_LEFT
 
 config SHIELD_ORCUS_RIGHT
     def_bool $(shields_list_contains,orcus_right)
+
+config SHIELD_ORCUS_DONGLE
+    def_bool $(shields_list_contains,orcus_dongle)

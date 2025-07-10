@@ -1,7 +1,9 @@
 include:
   - board: seeeduino_xiao_ble
-    shield: orcus_left
+    shield: mimas_orcus
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: seeeduino_xiao_ble
-    shield: orcus_right
+    shield: mimas_orcus
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: seeeduino_xiao_ble
-    shield: settings_reset
+    shield: orcus_dongle dongle_screen
