@@ -5,6 +5,7 @@
  */
 
 #include "orcus.dtsi"
+#include "orcus_left.dtsi"
 
 &kscan0 {
     col-gpios
