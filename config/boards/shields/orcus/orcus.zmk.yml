@@ -6,6 +6,7 @@ url: https://github.com/OriginalFire/Orcus
 requires: [seeeduino_xiao_ble]
 features:
   - keys
+  - studio
 siblings:
   - orcus_left
   - orcus_right
