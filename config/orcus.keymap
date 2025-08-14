@@ -25,36 +25,42 @@
                         bindings = <&mt RSHIFT ENTER>, <&kp DEL>;
                 };
 
+                // Define the macro for CTRL + C
                 macro_ctrl_c: ctrl_c_macro {
                         compatible = "zmk,behavior-macro";
                         label = "CTRL+C";
                         #binding-cells = <0>;
-                        bindings = < &kp LCTRL &kp C >;
+                        bindings = <&kp LCTRL &kp C>;
                 };
 
+                // Define the macro for CTRL + V
                 macro_ctrl_v: ctrl_v_macro {
                         compatible = "zmk,behavior-macro";
                         label = "CTRL+V";
                         #binding-cells = <0>;
-                        bindings = < &kp LCTRL &kp V >;
+                        bindings = <&kp LCTRL &kp V>;
                 };
 
+                // Define the hold-tap behavior for C/Copy
                 c_cpy: c_copy_hold_tap {
                         compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <200>;        
-                        quick-tap-ms = <0>;             
-                        flavor = "hold-preferred";      
-                        bindings = < &kp C &macro_ctrl_c >;
-                };
-
-                v_pst: v_paste_hold_tap {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <0>;
+                        label = "C_CPY";
+                        #binding-cells = <2>;
                         tapping-term-ms = <200>;
                         quick-tap-ms = <0>;
                         flavor = "hold-preferred";
-                        bindings = < &kp V &macro_ctrl_v >;
+                        bindings = <&macro_ctrl_c &kp C>; 
+                };
+
+                // Define the hold-tap behavior for V/Paste
+                v_pst: v_paste_hold_tap {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "V_PST";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <0>;
+                        flavor = "hold-preferred";
+                        bindings = <&macro_ctrl_v &kp V>; 
                 };
         };
            
