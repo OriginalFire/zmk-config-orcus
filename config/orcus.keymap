@@ -41,26 +41,20 @@
                         bindings = <&kp LCTRL &kp V>;
                 };
 
-                // Define the hold-tap behavior for C/Copy
-                c_cpy: c_copy_hold_tap {
-                        compatible = "zmk,behavior-hold-tap";
-                        label = "C_CPY";
-                        #binding-cells = <2>;
+                // Corrected behavior for 'C' key
+                c_cpy: c_copy {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        quick-tap-ms = <0>;
-                        flavor = "hold-preferred";
-                        bindings = <&macro_ctrl_c &kp C>; 
+                        bindings = <&kp C &macro_ctrl_c>;
                 };
 
-                // Define the hold-tap behavior for V/Paste
-                v_pst: v_paste_hold_tap {
-                        compatible = "zmk,behavior-hold-tap";
-                        label = "V_PST";
-                        #binding-cells = <2>;
+                // Corrected behavior for 'V' key, renamed for consistency
+                v_pst: v_paste {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        quick-tap-ms = <0>;
-                        flavor = "hold-preferred";
-                        bindings = <&macro_ctrl_v &kp V>; 
+                        bindings = <&kp V &macro_ctrl_v>;
                 };
         };
            
