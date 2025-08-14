@@ -128,7 +128,7 @@ display-name = "sym"                      ;
                   &trans      &kp EXCL    &kp AT      &kp HASH    &trans          &trans      &kp LPAR    &kp RPAR     &trans      &trans     
                   &trans      &kp DLLR    &kp PRCNT   &kp CARET   &trans          &trans      &kp APOS    &kp DQT      &trans     &trans  
       &trans      &trans      &kp AMPS    &kp STAR    &kp LBKT    &kp RBKT        &trans      &kp LBRC    &kp RBRC     &trans     &trans      &trans  
-                                          &trans      &trans      &trans          &trans      &trans     &trans  
+                                          &trans      &trans      &trans          &trans      &trans      &trans  
                         >;
                 };
 
@@ -138,9 +138,9 @@ display-name = "sym"                      ;
 display-name = "sys"                      ;
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃     Q     ┃     W     ┃   BRI_UP  ┃   BRI_DN  ┃     T     ┃   ┃     Y     ┃     U     ┃     I     ┃     O     ┃     P     ┃   
+//             ┃     Q     ┃     W     ┃   BRI_DN  ┃   BRI_UP  ┃     T     ┃   ┃     Y     ┃     U     ┃     I     ┃     O     ┃     P     ┃   
 //             ┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┫
-//             ┃     A     ┃     S     ┃   VOL_UP  ┃   VOL_DN  ┃    MUTE   ┃   ┃     H     ┃     J     ┃     K     ┃     L     ┃     ;     ┃    
+//             ┃     A     ┃     S     ┃   VOL_DN  ┃   VOL_UP  ┃    MUTE   ┃   ┃     H     ┃     J     ┃     K     ┃     L     ┃     ;     ┃    
 // ┏━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫━━━━━━━━━━━┓
 // ┃   LSHFT   ┃     Z     ┃     X     ┃     C     ┃     V     ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃   RSHFT   ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
@@ -149,8 +149,8 @@ display-name = "sys"                      ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                  &trans      &trans      &kp C_BRI_UP &kp C_BRI_DN &trans          &trans      &trans      &trans      &trans      &trans     
-                  &trans      &trans      &kp C_VOL_UP &kp C_VOL_DN &kp C_MUTE      &trans      &trans      &trans      &trans      &trans  
+                  &trans      &trans      &kp C_BRI_DN &kp C_BRI_UP &trans          &trans      &trans      &trans      &trans      &trans     
+                  &trans      &trans      &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE      &trans      &trans      &trans      &trans      &trans  
       &trans      &trans      &trans      &trans       &trans       &trans          &trans      &trans      &trans      &trans      &trans      &trans  
                                           &trans       &trans       &trans          &trans      &trans      &tog DEFAULT  
                         >;
