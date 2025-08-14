@@ -25,20 +25,6 @@
                         bindings = <&mt RSHIFT ENTER>, <&kp DEL>;
                 };
 
-                td_copy: tap_dance_copy{
-                        compatible = "zmk,behavior-tap-dance";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <200>;
-                        bindings = < &kp C &macro_ctrl_c >;
-                };
-
-                td_paste: tap_dance_paste{
-                        compatible = "zmk,behavior-tap-dance";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <200>;
-                        bindings = < &kp V &macro_ctrl_v >;
-                };
-
                 macro_ctrl_c: ctrl_c_macro {
                         compatible = "zmk,behavior-macro";
                         label = "CTRL+C";
@@ -52,13 +38,23 @@
                         #binding-cells = <0>;
                         bindings = < &kp LCTRL &kp V >;
                 };
-        };
 
-        conditional_layers {
-                compatible = "zmk,conditional-layers";
-                tri_layer {
-                        if-layers = <1 2>;
-                        then-layer = <3>;
+                c_cpy: c_copy_hold_tap {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;        
+                        quick-tap-ms = <0>;             
+                        flavor = "hold-preferred";      
+                        bindings = < &kp C &macro_ctrl_c >;
+                };
+
+                v_pst: v_paste_hold_tap {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <0>;
+                        flavor = "hold-preferred";
+                        bindings = < &kp V &macro_ctrl_v >;
                 };
         };
            
@@ -76,7 +72,7 @@ display-name = "Base"                      ;
 // ┏━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫━━━━━━━━━━━┓
 // ┃  td_lp    ┃     Z     ┃     X     ┃   C/COPY  ┃  V/PASTE  ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃   td_rp   ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃   LCTRL   ┃    LALT   ┃   SPACE   ┃   ┃    BSPC   ┃    SYM    ┃    SYS    ┃
+//                                     ┃   LCTRL   ┃    LALT   ┃   SPACE   ┃   ┃    BSPC   ┃    RALT   ┃    SYS    ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
@@ -84,7 +80,7 @@ display-name = "Base"                      ;
                   &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P       
                   &kp A       &kp S       &kp D       &kp F       &kp G           &kp H       &kp J       &kp K       &kp L       &kp SEMI    
       &td_lp      &kp Z       &kp X       &td_copy    &td_paste   &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp SLASH   &td_rp
-                                          &kp LCTRL   &kp LALT    &lt NUM SPACE   &lt SYM BSPC &tog SYS   &kp RALT   
+                                          &kp LCTRL   &kp LALT    &lt NUM SPACE   &lt SYM BSPC &kp RALT   &tog SYS   
                         >;
                 };
 
@@ -94,9 +90,9 @@ display-name = "Base"                      ;
 display-name = "num"                      ;
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃   trans   ┃     UP    ┃   trans   ┃   trans   ┃   trans   ┃   ┃     *     ┃     N7    ┃     N8    ┃     N9    ┃   trans   ┃   
+//             ┃   trans   ┃   trans   ┃     UP    ┃   trans   ┃   trans   ┃   ┃     *     ┃     N7    ┃     N8    ┃     N9    ┃   trans   ┃   
 //             ┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┫
-//             ┃    LEFT   ┃    DOWN   ┃   RIGHT   ┃   trans   ┃   trans   ┃   ┃     /     ┃     N4    ┃     N5    ┃     N6    ┃   trans   ┃    
+//             ┃   trans   ┃    LEFT   ┃    DOWN   ┃   RIGHT   ┃   trans   ┃   ┃     /     ┃     N4    ┃     N5    ┃     N6    ┃   trans   ┃    
 // ┏━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫━━━━━━━━━━━┓
 // ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   ┃     +     ┃     N1    ┃     N2    ┃     N3    ┃   trans   ┃   trans   ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
@@ -105,8 +101,8 @@ display-name = "num"                      ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                  &trans      &kp UP      &trans      &trans      &trans          &kp STAR    &kp N7      &kp N8      &kp N9      &trans     
-                  &kp LEFT    &kp DOWN    &kp RIGHT   &trans      &trans          &kp FSLH    &kp N4      &kp N5      &kp N6      &trans  
+                  &trans      &trans      &kp UP      &trans      &trans          &kp STAR    &kp N7      &kp N8      &kp N9      &trans     
+                  &trans      &kp LEFT    &kp DOWN    &kp RIGHT   &trans          &kp FSLH    &kp N4      &kp N5      &kp N6      &trans  
       &trans      &trans      &trans      &trans      &trans      &trans          &kp PLUS    &kp N1      &kp N2      &kp N3      &trans      &trans  
                                           &trans      &trans      &trans          &kp MINUS   &kp N0      &kp KP_DOT   
                         >;
@@ -118,20 +114,20 @@ display-name = "num"                      ;
 display-name = "sym"                      ;
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃   trans   ┃     !     ┃     @     ┃     #     ┃   trans   ┃   ┃   trans   ┃     {     ┃     }     ┃   trans   ┃   trans   ┃   
+//             ┃   trans   ┃     !     ┃     @     ┃     #     ┃   trans   ┃   ┃   trans   ┃     (     ┃     )     ┃   trans   ┃   trans   ┃   
 //             ┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┫
 //             ┃   trans   ┃     $     ┃     %     ┃     ^     ┃   trans   ┃   ┃   trans   ┃     '     ┃     "     ┃   trans   ┃   trans   ┃    
 // ┏━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫━━━━━━━━━━━┓
-// ┃   trans   ┃   trans   ┃     &     ┃     *     ┃     (     ┃     )     ┃   ┃   trans   ┃     [     ┃     ]     ┃   trans   ┃   trans   ┃   trans   ┃
+// ┃   trans   ┃   trans   ┃     &     ┃     *     ┃     [     ┃     ]     ┃   ┃   trans   ┃     {     ┃     }     ┃   trans   ┃   trans   ┃   trans   ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 //                                     ┃   trans   ┃   trans   ┃   trans   ┃   ┃   trans   ┃   trans   ┃   trans   ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                  &trans      &kp EXCL    &kp AT      &kp HASH    &trans          &trans      &kp LBRC    &kp RBRC    &trans      &trans     
-                  &trans      &kp DLLR    &kp PRCNT   &kp CARET   &trans          &trans      &kp APOS      &kp DQT      &trans     &trans  
-      &trans      &trans      &kp AMPS    &kp STAR    &kp LPAR    &kp RPAR        &trans      &kp LBKT      &kp RBKT     &trans     &trans      &trans  
+                  &trans      &kp EXCL    &kp AT      &kp HASH    &trans          &trans      &kp LPAR    &kp RPAR     &trans      &trans     
+                  &trans      &kp DLLR    &kp PRCNT   &kp CARET   &trans          &trans      &kp APOS    &kp DQT      &trans     &trans  
+      &trans      &trans      &kp AMPS    &kp STAR    &kp LBKT    &kp RBKT        &trans      &kp LBRC    &kp RBRC     &trans     &trans      &trans  
                                           &trans      &trans      &trans          &trans      &trans     &trans  
                         >;
                 };
