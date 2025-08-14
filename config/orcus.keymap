@@ -45,7 +45,7 @@
                         tapping-term-ms = <200>;        
                         quick-tap-ms = <0>;             
                         flavor = "hold-preferred";      
-                        bindings = <&kp C>, &macro_ctrl_c;
+                        bindings = < &kp C &macro_ctrl_c >;
                 };
 
                 v_pst: v_paste_hold_tap {
@@ -54,7 +54,7 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <0>;
                         flavor = "hold-preferred";
-                        bindings = <&kp V>, &macro_ctrl_v;
+                        bindings = < &kp V &macro_ctrl_v >;
                 };
         };
            
