@@ -119,21 +119,21 @@ display-name = "Base"                      ;
 display-name = "num"                      ;
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃   trans   ┃   trans   ┃     UP    ┃   trans   ┃   trans   ┃   ┃     *     ┃     N7    ┃     N8    ┃     N9    ┃   trans   ┃   
+//             ┃   trans   ┃     N7    ┃     N8    ┃     N9    ┃   trans   ┃   ┃   trans   ┃   trans   ┃     UP    ┃   trans   ┃   trans   ┃   
 //             ┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┫
-//             ┃   trans   ┃    LEFT   ┃    DOWN   ┃   RIGHT   ┃   trans   ┃   ┃     /     ┃     N4    ┃     N5    ┃     N6    ┃   trans   ┃    
+//             ┃    N1     ┃     N4    ┃     N5    ┃     N6    ┃   trans   ┃   ┃   trans   ┃    LEFT   ┃    DOWN   ┃   RIGHT   ┃   trans   ┃    
 // ┏━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫━━━━━━━━━━━┓
-// ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   ┃     +     ┃     N1    ┃     N2    ┃     N3    ┃   trans   ┃   trans   ┃
+// ┃   trans   ┃   trans   ┃     N1    ┃     N2    ┃     N3    ┃   trans   ┃   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃   trans   ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃   trans   ┃   trans   ┃   trans   ┃   ┃     -     ┃     N0    ┃   KP_DOT  ┃
+//                                     ┃   trans   ┃   KP_DOT  ┃   trans   ┃   ┃   trans   ┃   trans   ┃   trans   ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                  &trans      &trans      &kp UP      &trans      &trans          &kp STAR    &kp N7      &kp N8      &kp N9      &trans     
-                  &trans      &kp LEFT    &kp DOWN    &kp RIGHT   &trans          &kp FSLH    &kp N4      &kp N5      &kp N6      &trans  
-      &trans      &trans      &trans      &trans      &trans      &trans          &kp PLUS    &kp N1      &kp N2      &kp N3      &trans      &trans  
-                                          &trans      &trans      &trans          &kp MINUS   &kp N0      &kp KP_DOT   
+                  &trans      &kp N7      &kp N8      &kp N9      &kp STAR        &trans      &trans      &kp UP      &trans      &trans     
+                  &kp N0      &kp N4      &kp N5      &kp N6      &kp MINUS       &trans      &kp LEFT    &kp DOWN    &kp RIGHT   &trans  
+      &trans      &trans      &kp N1      &kp N2      &kp N3      &kp PLUS        &trans      &trans      &trans      &trans      &trans      &trans  
+                                          &trans      &kp KP_DOT  &trans          &trans      &trans      &trans   
                         >;
                 };
 
@@ -204,7 +204,7 @@ display-name = "Mac"                       ;
                   &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans       
                   &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans    
       &trans      &trans      &trans      &c_cpy_mac  &v_pst_mac  &trans          &trans      &trans      &trans      &trans      &trans      &trans
-                                          &trans      &trans      &lt NUM SPACE   &lt SYM BSPC &trans     &trans   
+                                          &trans      &trans      &trans          &trans      &trans      &trans   
                         >;
                 };
         };
