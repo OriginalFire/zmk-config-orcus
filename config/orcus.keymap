@@ -26,64 +26,32 @@
                         bindings = <&mt RSHIFT ENTER>, <&kp DEL>;
                 };
 
-                // Define the macro for CTRL + C
-                macro_ctrl_c: ctrl_c_macro {
-                        compatible = "zmk,behavior-macro";
-                        label = "CTRL+C";
-                        #binding-cells = <0>;
-                        bindings = <&kp LCTRL &kp C>;
-                };
-
-                // Define the macro for CTRL + V
-                macro_ctrl_v: ctrl_v_macro {
-                        compatible = "zmk,behavior-macro";
-                        label = "CTRL+V";
-                        #binding-cells = <0>;
-                        bindings = <&kp LCTRL &kp V>;
-                };
-
-                // Define the macro for CMD + C
-                macro_ctrl_c_mac: ctrl_c_macro_mac {
-                        compatible = "zmk,behavior-macro";
-                        label = "CTRL+C";
-                        #binding-cells = <0>;
-                        bindings = <&kp LCMD &kp C>;
-                };
-
-                // Define the macro for CMD + V
-                macro_ctrl_v_mac: ctrl_v_macro_mac {
-                        compatible = "zmk,behavior-macro";
-                        label = "CTRL+V";
-                        #binding-cells = <0>;
-                        bindings = <&kp LCMD &kp V>;
-                };
-
                 c_cpy: c_copy {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&kp C>, <&macro_ctrl_c>;
+                        bindings = <&kp C>, <&kp LC(C)>;
                 };
 
                 v_pst: v_paste {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&kp V>, <&macro_ctrl_v>;
+                        bindings = <&kp V>, <&kp LC(V)>;
                 };
 
                 c_cpy_mac: c_copy_mac {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&kp C>, <&macro_ctrl_c_mac>;
+                        bindings = <&kp C>, <&kp LG(C)>;
                 };
 
                 v_pst_mac: v_paste_mac {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&kp V>, <&macro_ctrl_v_mac>;
+                        bindings = <&kp V>, <&kp LG(V)>;
                 };
         };
            
