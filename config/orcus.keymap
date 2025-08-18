@@ -62,28 +62,28 @@
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&kp C &macro_ctrl_c>;
+                        bindings = <&kp C>, <&macro_ctrl_c>;
                 };
 
                 v_pst: v_paste {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&kp V &macro_ctrl_v>;
+                        bindings = <&kp V>, <&macro_ctrl_v>;
                 };
 
                 c_cpy_mac: c_copy_mac {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&kp C &macro_ctrl_c_mac>;
+                        bindings = <&kp C>, <&macro_ctrl_c_mac>;
                 };
 
                 v_pst_mac: v_paste_mac {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
-                        bindings = <&kp V &macro_ctrl_v_mac>;
+                        bindings = <&kp V>, <&macro_ctrl_v_mac>;
                 };
         };
            
@@ -181,7 +181,7 @@ display-name = "sys"                      ;
                   &trans      &trans      &kp C_BRI_DN &kp C_BRI_UP &trans          &trans      &trans      &trans      &trans      &trans     
                   &trans      &trans      &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE      &trans      &trans      &trans      &trans      &trans  
       &trans      &trans      &trans      &trans       &trans       &trans          &trans      &trans      &trans      &trans      &trans      &trans  
-                                          &trans       &trans       &trans          &trans      &tog MAC    &tog DEFAULT  
+                                          &trans       &trans       &trans          &trans      &trans      &to DEFAULT  
                         >;
                 };
 
