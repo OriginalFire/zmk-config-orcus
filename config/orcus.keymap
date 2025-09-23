@@ -25,34 +25,6 @@
                         tapping-term-ms = <200>;
                         bindings = <&mt RSHIFT ENTER>, <&kp DEL>;
                 };
-
-                c_cpy: c_copy {
-                        compatible = "zmk,behavior-tap-dance";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <200>;
-                        bindings = <&kp C>, <&kp LC(C)>;
-                };
-
-                v_pst: v_paste {
-                        compatible = "zmk,behavior-tap-dance";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <200>;
-                        bindings = <&kp V>, <&kp LC(V)>;
-                };
-
-                c_cpy_mac: c_copy_mac {
-                        compatible = "zmk,behavior-tap-dance";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <200>;
-                        bindings = <&kp C>, <&kp LG(C)>;
-                };
-
-                v_pst_mac: v_paste_mac {
-                        compatible = "zmk,behavior-tap-dance";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <200>;
-                        bindings = <&kp V>, <&kp LG(V)>;
-                };
         };
            
         keymap {
@@ -76,7 +48,7 @@ display-name = "BASE"                      ;
 
                   &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P       
                   &kp A       &kp S       &kp D       &kp F       &kp G           &kp H       &kp J       &kp K       &kp L       &kp SEMI    
-      &td_lp      &kp Z       &kp X       &c_cpy      &v_pst      &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp SLASH   &td_rp
+      &td_lp      &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp SLASH   &td_rp
                                           &kp LCTRL   &kp LALT    &lt NUM SPACE   &lt SYM BSPC &kp RALT   &tog SYS   
                         >;
                 };
@@ -101,7 +73,7 @@ display-name = "NUM"                      ;
                   &trans      &kp N7      &kp N8      &kp N9      &kp STAR        &trans      &trans      &kp UP      &trans      &trans     
                   &kp N0      &kp N4      &kp N5      &kp N6      &kp MINUS       &trans      &kp LEFT    &kp DOWN    &kp RIGHT   &trans  
       &trans      &trans      &kp N1      &kp N2      &kp N3      &kp PLUS        &trans      &trans      &trans      &trans      &trans      &trans  
-                                          &trans      &kp KP_DOT  &trans          &trans      &trans      &trans   
+                                          &trans      &kp KP_DOT  &trans          &kp DEL     &trans      &trans   
                         >;
                 };
 
@@ -150,29 +122,6 @@ display-name = "SYS"                      ;
                   &trans      &trans      &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE      &trans      &trans      &trans      &trans      &trans  
       &trans      &trans      &trans      &trans       &trans       &trans          &trans      &trans      &trans      &trans      &trans      &trans  
                                           &trans       &trans       &trans          &trans      &trans      &to DEFAULT  
-                        >;
-                };
-
-                mac {
-// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-display-name = "MAC"                       ;
-// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-//             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃     Q     ┃     W     ┃     E     ┃     R     ┃     T     ┃   ┃     Y     ┃     U     ┃     I     ┃     O     ┃     P     ┃   
-//             ┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┫
-//             ┃     A     ┃     S     ┃     D     ┃     F     ┃     G     ┃   ┃     H     ┃     J     ┃     K     ┃     L     ┃     ;     ┃    
-// ┏━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫━━━━━━━━━━━┓
-// ┃  td_lp    ┃     Z     ┃     X     ┃   C/COPY  ┃  V/PASTE  ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃   td_rp   ┃
-// ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃   LCTRL   ┃    LALT   ┃   SPACE   ┃   ┃    BSPC   ┃    RALT   ┃    SYS    ┃
-//                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
- bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
-
-                  &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans       
-                  &trans      &trans      &trans      &trans      &trans          &trans      &trans      &trans      &trans      &trans    
-      &trans      &trans      &trans      &c_cpy_mac  &v_pst_mac  &trans          &trans      &trans      &trans      &trans      &trans      &trans
-                                          &trans      &trans      &trans          &trans      &trans      &trans   
                         >;
                 };
         };
